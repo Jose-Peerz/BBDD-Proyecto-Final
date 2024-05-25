@@ -212,7 +212,7 @@ VALUES
 --    WHEN `id_categorioa` > 10 THEN FLOOR(RAND() * 10) + 1
 --    ELSE `id_categorioa`
 --  END;
-INSERT INTO `Libro` (`titulo`,`id_categorioa`,`fecha_publicacion`)
+INSERT INTO `Libro` (`titulo`,`id_categoria`,`fecha_publicacion`)
 VALUES
   ("ante",1,"1983-11-05"),
   ("tempor",2,"1988-03-08"),
@@ -264,7 +264,7 @@ VALUES
   ("varius",48,"1984-09-10"),
   ("at arcu.",49,"1991-07-06"),
   ("commodo ipsum.",50,"1993-08-16");
-INSERT INTO `Libro` (`titulo`,`id_categorioa`,`fecha_publicacion`)
+INSERT INTO `Libro` (`titulo`,`id_categoria`,`fecha_publicacion`)
 VALUES
   ("augue malesuada",51,"1985-05-20"),
   ("mollis. Integer",52,"1992-02-14"),
@@ -316,7 +316,7 @@ VALUES
   ("dolor,",98,"1997-05-28"),
   ("mi,",99,"2024-11-09"),
   ("dignissim tempor",100,"2014-05-02");
-INSERT INTO `Libro` (`titulo`,`id_categorioa`,`fecha_publicacion`)
+INSERT INTO `Libro` (`titulo`,`id_categoria`,`fecha_publicacion`)
 VALUES
   ("neque",101,"2025-03-12"),
   ("lobortis.",102,"2022-03-20"),
@@ -368,7 +368,7 @@ VALUES
   ("diam.",148,"2015-08-05"),
   ("enim.",149,"1995-08-04"),
   ("neque.",150,"2015-02-28");
-INSERT INTO `Libro` (`titulo`,`id_categorioa`,`fecha_publicacion`)
+INSERT INTO `Libro` (`titulo`,`id_categoria`,`fecha_publicacion`)
 VALUES
   ("mus. Donec",151,"2004-10-20"),
   ("pharetra sed,",152,"1985-02-25"),

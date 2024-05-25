@@ -5,8 +5,6 @@ USE biblioteca;
 CREATE TABLE Categoria (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    id_categoria_padre INT,
-    FOREIGN KEY (id_categoria_padre) REFERENCES Categoria(id_categoria)
 );
 
 -- Crear tabla Libro
