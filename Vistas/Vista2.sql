@@ -1,7 +1,8 @@
--- Vista 2: Vista de usuarios activos
-CREATE VIEW Usuarios_Activos AS
-SELECT u.nombre, COUNT(p.id_prestamo) AS prestamos_activos
-FROM Usuario u
-JOIN Préstamo p ON u.id_usuario = p.id_usuario
-WHERE p.fecha_devolucion IS NULL
-GROUP BY u.nombre;
+-- Vista 2: Resumen de Alquileres Activos.
+CREATE VIEW Vista_Alquileres_Activos AS
+SELECT A.id_alquiler, C.nombre AS nombre_cliente, Coche.marca, Coche.modelo, A.fecha_entrega, A.fecha_devolución
+FROM Alquiler A
+JOIN Reserva R ON A.id_reserva = R.id_reserva
+JOIN Cliente C ON R.id_cliente = C.id_cliente
+JOIN Coche ON R.id_coche = Coche.id_coche
+WHERE A.fecha_devolución > CURDATE();

@@ -1,6 +1,5 @@
---Consulta 2: Libros reservados pero no prestados
-SELECT l.título
-FROM Libro l
-JOIN Reserva r ON l.id_libro = r.id_libro
-LEFT JOIN Préstamo p ON r.id_libro = p.id_libro
-WHERE p.id_libro IS NULL;
+--Consulta 2: Contar el número de reservas por cliente.
+SELECT C.nombre, C.apellido, COUNT(R.id_reserva) AS total_reservas
+FROM Cliente C
+JOIN Reserva R ON C.id_cliente = R.id_cliente
+GROUP BY C.id_cliente;

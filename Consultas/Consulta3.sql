@@ -1,6 +1,6 @@
---Consulta 3: Usuarios con más de 5 préstamos
-SELECT u.nombre
-FROM Usuario u
-JOIN Préstamo p ON u.id_usuario = p.id_usuario
-GROUP BY u.nombre
-HAVING COUNT(p.id_libro) > 5;
+--Consulta 3: Calcular el costo total de alquileres por cliente.
+SELECT C.nombre, C.apellido, SUM(A.costo_total) AS costo_total
+FROM Cliente C
+JOIN Reserva R ON C.id_cliente = R.id_cliente
+JOIN Alquiler A ON R.id_reserva = A.id_reserva
+GROUP BY C.id_cliente;

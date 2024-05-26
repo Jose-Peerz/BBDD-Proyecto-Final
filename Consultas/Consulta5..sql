@@ -1,6 +1,7 @@
---Consulta 5: Autores con más libros publicados
-SELECT a.nombre, COUNT(la.id_libro) AS libros_publicados
-FROM Autor a
-JOIN Libro_Autor la ON a.id_autor = la.id_autor
-GROUP BY a.nombre
-ORDER BY libros_publicados DESC;
+--Consulta 5: Detalles de alquileres activos (en curso).
+SELECT A.id_alquiler, C.nombre AS nombre_cliente, Coche.marca, Coche.modelo, A.fecha_entrega, A.fecha_devolución
+FROM Alquiler A
+JOIN Reserva R ON A.id_reserva = R.id_reserva
+JOIN Cliente C ON R.id_cliente = C.id_cliente
+JOIN Coche ON R.id_coche = Coche.id_coche
+WHERE A.fecha_devolución > CURDATE();

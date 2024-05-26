@@ -1,6 +1,6 @@
---Vista 1: Vista de libros disponibles
-CREATE VIEW Libros_Disponibles AS
-SELECT l.título, c.nombre AS categoría
-FROM Libro l
-JOIN Categoría c ON l.id_categoria = c.id_categoria
-WHERE l.id_libro NOT IN (SELECT id_libro FROM Préstamo WHERE fecha_devolucion IS NULL);
+--Vista 1: Resumen de Reservas.
+CREATE VIEW Vista_Resumen_Reservas AS
+SELECT R.id_reserva, C.nombre AS nombre_cliente, Coche.marca, Coche.modelo, R.fecha_reserva, R.fecha_inicio, R.fecha_fin
+FROM Reserva R
+JOIN Cliente C ON R.id_cliente = C.id_cliente
+JOIN Coche ON R.id_coche = Coche.id_coche;

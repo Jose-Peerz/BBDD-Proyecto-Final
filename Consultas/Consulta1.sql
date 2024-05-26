@@ -1,5 +1,5 @@
---Consulta 1: Libros prestados por cada usuario
-SELECT u.nombre, COUNT(p.id_libro) AS libros_prestados
-FROM Usuario u
-JOIN Préstamo p ON u.id_usuario = p.id_usuario
-GROUP BY u.nombre;
+--Consulta 1: Listar todas las reservas con detalles del cliente y coche.
+SELECT R.id_reserva, C.nombre AS nombre_cliente, Coche.marca, Coche.modelo, R.fecha_reserva, R.fecha_inicio, R.fecha_fin
+FROM Reserva R
+JOIN Cliente C ON R.id_cliente = C.id_cliente
+JOIN Coche ON R.id_coche = Coche.id_coche;

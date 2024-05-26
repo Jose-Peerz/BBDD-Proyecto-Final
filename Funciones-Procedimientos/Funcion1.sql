@@ -1,5 +1,5 @@
---Función 1: Calcular días de préstamo
-CREATE FUNCTION Días_Préstamo(fecha_prestamo DATE, fecha_devolucion DATE) RETURNS INT
+--Función 1: Calcular la duración de una reserva
+CREATE FUNCTION Duracion_Reserva(fecha_inicio DATE, fecha_fin DATE) RETURNS INT
 BEGIN
-    RETURN DATEDIFF(fecha_devolucion, fecha_prestamo);
+    RETURN DATEDIFF(fecha_fin, fecha_inicio);
 END;

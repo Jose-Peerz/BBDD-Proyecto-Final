@@ -1,5 +1,6 @@
---Procedimiento 1: Registrar nuevo préstamo
-CREATE PROCEDURE Registrar_Prestamo(IN user_id INT, IN libro_id INT)
+--Procedimiento 1: Crear una nueva reserva.
+CREATE PROCEDURE Crear_Reserva(IN id_cliente INT, IN id_coche INT, IN fecha_inicio DATE, IN fecha_fin DATE)
 BEGIN
-    INSERT INTO Préstamo (id_usuario, id_libro, fecha_prestamo) VALUES (user_id, libro_id, CURDATE());
+    INSERT INTO Reserva (id_cliente, id_coche, fecha_reserva, fecha_inicio, fecha_fin)
+    VALUES (id_cliente, id_coche, CURDATE(), fecha_inicio, fecha_fin);
 END;

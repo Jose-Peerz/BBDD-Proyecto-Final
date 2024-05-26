@@ -1,5 +1,5 @@
---Consulta 4: Libros por categoría
-SELECT c.nombre AS categoría, COUNT(l.id_libro) AS total_libros
-FROM Categoría c
-JOIN Libro l ON c.id_categoria = l.id_categoria
-GROUP BY c.nombre;
+--Consulta 4: Listar todos los coches disponibles (no reservados).
+SELECT Coche.marca, Coche.modelo
+FROM Coche
+LEFT JOIN Reserva R ON Coche.id_coche = R.id_coche
+WHERE R.id_coche IS NULL OR R.fecha_fin < CURDATE();
