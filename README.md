@@ -10,7 +10,7 @@ Este repositorio contiene el proyecto de un sistema de gestión de alquiler de c
 - **Vistas/:** Carpeta con script para la creación de vistas.
 - **Funciones-Procedimientos/:** Carpeta con script para la creación de funciones y procedimientos almacenados.
 - **Triggers/:** Carpeta con script para la creación de triggers.
-- **Entidad-Relacion/:** Carpeta con el diagrama MER extendido del proyecto.
+- **Entidad-Relacion/:** Carpeta con el diagrama MER extendido del proyecto, y el esquema relacional.
 
 ## Estructura del proyecto
 
@@ -22,23 +22,23 @@ El diagrama MER extendido, creado utilizando la herramienta Diagrams.net, incluy
 
 El modelo relacional transformado del diagrama entidad relación incluye las siguientes tablas:
 
-- **Cliente:** `id_cliente`, `nombre`, `apellido`, `email`, `teléfono`
-- **Categoría:** `id_categoria`, `nombre`, `descripción`
+- **Cliente:** `id_cliente`, `nombre`, `email`
+- **Categoría:** `id_categoria`, `nombre`
 - **Coche:** `id_coche`, `marca`, `modelo`, `año`, `matrícula`, `id_categoria`
-- **Reserva:** `id_reserva`, `id_cliente`, `id_coche`, `fecha_reserva`, `fecha_inicio`, `fecha_fin`
-- **Alquiler:** `id_alquiler`, `id_reserva`, `fecha_entrega`, `fecha_devolución`, `costo_total`
+- **Reserva:** `id_reserva`, `id_cliente`, `id_coche`, `fecha_Reserva`, `fecha_devolución`
+- **Alquiler:** `id_alquiler`, `id_reserva`, `costo_total`
 
 ### 3. Carga de Datos
 
-El script `CargaDatos.sql` contiene la carga de datos para las tablas `Cliente` y `Coche`.
+El script `CargaDatos.sql` contiene la carga de datos para las tablas `Cliente`, `Coche`, `Categoria`, `Reserva` y `Alquiler`.
 
 ### 4. Consultas
 
-La carpeta `Consultas/` incluye 5 consultas que utilizan múltiples tablas, agrupaciones y subconsultas.
+La carpeta `Consultas/` incluye 5 consultas.
 
 ### 5. Vistas
 
-La carpeta `Vistas/` contiene la creación de dos vistas derivadas de las consultas previas:
+La carpeta `Vistas/` contiene la creación de dos vistas:
 
 - **Vista_Resumen_Reservas:** Muestra las reservas con detalles del cliente y coche.
 - **Vista_Alquileres_Activos:** Muestra los alquileres que están actualmente en curso.
@@ -48,11 +48,11 @@ La carpeta `Vistas/` contiene la creación de dos vistas derivadas de las consul
 La carpeta `Funciones-Procedimientos/` contiene:
 
 - **Dos funciones:** `Duracion_Reserva` y `Calcular_Costo`.
-- **Tres procedimientos:** `Crear_Reserva`, `Actualizar_Informacion_Coche` y `Calcular_Costos_Alquileres`, uno de los cuales utiliza cursores y otro hace uso de una función.
+- **Tres procedimientos:** `Crear_Reserva`, `Actualizar_Informacion_Coche` y `Calcular_Costos_Alquileres`.
 
 ### 7. Triggers
 
 La carpeta `Triggers/` incluye:
 
-- **Actualizar_Estado_Coche_Reserva:** Actualiza el estado del coche a 'Reservado' cuando se realiza una reserva.
-- **Actualizar_Estado_Coche_Alquiler:** Actualiza el estado del coche a 'Disponible' cuando se finaliza un alquiler.
+- **Verificar_Disponibilidad_Before_Insert:** Verifica la disponibilidad del coche antes de registrar un alquiler.
+- **Actualizar_Vista_After_Update:** Actualiza la vista de alquileres activos después de finalizar un alquiler.
